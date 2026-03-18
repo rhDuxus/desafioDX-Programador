@@ -27,6 +27,12 @@ public class ComposicaoTime {
 		this.integrante = integrante;
 	}
 
+    public ComposicaoTime(long id, Time time, Integrante integrante) {
+        this.id = id;
+        this.time = time;
+        this.integrante = integrante;
+    }
+
 	public long getId() {
 		return id;
 	}

@@ -13,17 +13,35 @@ public class Time {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+    /**
+     * Nome do Clube (associação esportiva)
+     * a qual o time representa.
+     * Exemplos:
+     * Para Futebol - Palmeiras, Santos, etc;
+     * Para Basquete - Pinheiros, Franca, etc.
+     */
+    @Column
+    private String nomeDoClube;
+
+    /**
+     * Data em que esse time foi formado (composição do time firmada)
+     * Lembrando: a formação da equipe pode mudar em momentos diferentes, por isso a data.
+     */
 	@Column
     private LocalDate data;
-	
+
+    /**
+     * Elenco ou equipe - o conjunto de integrantes desse time
+     */
 	@OneToMany(mappedBy = "time", cascade = CascadeType.ALL)
 	private List<ComposicaoTime> composicaoTime;
 
 	public Time() {
 	}
 
-	public Time(LocalDate data, List<ComposicaoTime> composicaoTime) {
-		this.data = data;
+	public Time(String nomeDoClube, LocalDate data, List<ComposicaoTime> composicaoTime) {
+		this.nomeDoClube = nomeDoClube;
+        this.data = data;
 		this.composicaoTime = composicaoTime;
 	}
 
@@ -35,7 +53,15 @@ public class Time {
 		this.id = id;
 	}
 
-	public LocalDate getData() {
+    public String getNomeDoClube() {
+        return nomeDoClube;
+    }
+
+    public void setNomeDoClube(String nomeDoClube) {
+        this.nomeDoClube = nomeDoClube;
+    }
+
+    public LocalDate getData() {
 		return data;
 	}
 
@@ -57,18 +83,19 @@ public class Time {
 		if (this == o) return true;
 		if (!(o instanceof Time)) return false;
 		Time time = (Time) o;
-		return id == time.id && Objects.equals(data, time.data);
+		return id == time.id && Objects.equals(nomeDoClube, time.nomeDoClube) && Objects.equals(data, time.data);
 	}
 
 	@Override
 	public final int hashCode() {
-		return Objects.hash(id, data);
+		return Objects.hash(id, nomeDoClube, data);
 	}
 
 	@Override
 	public String toString() {
 		return "Time{" +
 				"id=" + id +
+                ", nome=" + nomeDoClube +
 				", data=" + data +
 				'}';
 	}

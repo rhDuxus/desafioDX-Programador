@@ -38,35 +38,35 @@ public class ApiService {
     }
 
     /**
-     * Vai retornar uma lista com os nomes dos integrantes do time mais comum
-     * dentro do período
+     * Vai retornar uma lista com os nomes dos integrantes do time mais recorrente dentro do período.
+     * OBS: Time é o clube + composição em determinada data
      */
-    public List<String> integrantesDoTimeMaisComum(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
+    public List<String> integrantesDoTimeMaisRecorrente(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
         // TODO Implementar método seguindo as instruções!
         return null;
     }
 
     /**
-     * Vai retornar a função mais comum nos times dentro do período
+     * Vai retornar a função mais recorrente nos times dentro do período
      */
-    public String funcaoMaisComum(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
+    public String funcaoMaisRecorrente(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
         // TODO Implementar método seguindo as instruções!
         return null;
     }
 
     /**
-     * Vai retornar o nome da Franquia mais comum nos times dentro do período
+     * Vai retornar o nome do Clube mais comum dentro do período
      */
-    public String franquiaMaisFamosa(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes) {
+    public String clubeMaisRecorrente(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes) {
         // TODO Implementar método seguindo as instruções!
         return null;
     }
 
 
     /**
-     * Vai retornar o número (quantidade) de Franquias dentro do período
+     * Vai retornar o número (quantidade) de aparições de cada Clube participante no período
      */
-    public Map<String, Long> contagemPorFranquia(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
+    public Map<String, Long> contagemDeClubesNoPeriodo(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
         // TODO Implementar método seguindo as instruções!
         return null;
     }

@@ -12,11 +12,7 @@ public class Integrante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotNull
-	@Column
-	private String franquia;
-	
+
 	@NotNull
 	@Column
 	private String nome;
@@ -32,8 +28,7 @@ public class Integrante {
 	public Integrante() {
 	}
 
-	public Integrante(String franquia, String nome, String funcao, List<ComposicaoTime> composicaoTime) {
-		this.franquia = franquia;
+	public Integrante(String nome, String funcao, List<ComposicaoTime> composicaoTime) {
 		this.nome = nome;
 		this.funcao = funcao;
 		this.composicaoTime = composicaoTime;
@@ -45,14 +40,6 @@ public class Integrante {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getFranquia() {
-		return franquia;
-	}
-
-	public void setFranquia(String franquia) {
-		this.franquia = franquia;
 	}
 
 	public String getNome() {
@@ -85,19 +72,18 @@ public class Integrante {
 		if (this == o) return true;
 		if (!(o instanceof Integrante)) return false;
 		Integrante that = (Integrante) o;
-		return id == that.id && Objects.equals(franquia, that.franquia) && Objects.equals(nome, that.nome) && Objects.equals(funcao, that.funcao);
+		return id == that.id && Objects.equals(nome, that.nome) && Objects.equals(funcao, that.funcao);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, franquia, nome, funcao);
+		return Objects.hash(id, nome, funcao);
 	}
 
 	@Override
 	public String toString() {
 		return "Integrante{" +
 				"id=" + id +
-				", franquia='" + franquia + '\'' +
 				", nome='" + nome + '\'' +
 				", funcao='" + funcao + '\'' +
 				'}';

@@ -18,20 +18,20 @@ public class DadosParaTesteApiService {
     private final LocalDate data1994 = LocalDate.of(1994,1, 1);
     private final LocalDate data1995 = LocalDate.of(1995,1, 1);
 
-    // franquias
-    private final String franquiaNBA = "NBA";
-
-
     // integrantes
     // nba
     private Integrante michael_jordan;
     private Integrante denis_rodman;
     private Integrante scottie_pippen;
 
+    // Clubes
+    private String clubeChicagoBulls = "Chicago Bulls";
+    private String clubeDetroitPistons = "Detroit Pistons";
+
+    // Times - equipes diferentes de cada Clube
     private Time timeChicagoBullsDe1994;
     private Time timeChicagoBullsDe1995;
-
-    private Time timeDetroidPistonsDe1993;
+    private Time timeDetroitPistonsDe1993;
 
     private List<Time> todosOsTimes;
 
@@ -48,25 +48,31 @@ public class DadosParaTesteApiService {
 
         // integrantes
         // nba
-        michael_jordan = new Integrante(franquiaNBA, "Michael Jordan", "ala", composicaoTime1994E1995);
-        denis_rodman = new Integrante(franquiaNBA, "Denis Rodman", "ala-pivô", composicaoTime1995);
-        scottie_pippen = new Integrante(franquiaNBA, "Scottie Pippen", "ala", composicaoTime1995);
+        michael_jordan = new Integrante("Michael Jordan", "ala", composicaoTime1994E1995);
+        michael_jordan.setId(1L);
+        denis_rodman = new Integrante("Denis Rodman", "ala-pivô", composicaoTime1995);
+        denis_rodman.setId(2L);
+        scottie_pippen = new Integrante("Scottie Pippen", "ala", composicaoTime1995);
+        denis_rodman.setId(3L);
 
-        timeChicagoBullsDe1994 = new Time(data1994, composicaoTime1994);
-        timeChicagoBullsDe1995 = new Time(data1995, composicaoTime1995);
-        timeDetroidPistonsDe1993 = new Time(data1993, composicaoTime1993);
+        timeChicagoBullsDe1994 = new Time(clubeChicagoBulls, data1994, composicaoTime1994);
+        timeChicagoBullsDe1994.setId(1l);
+        timeChicagoBullsDe1995 = new Time(clubeChicagoBulls, data1995, composicaoTime1995);
+        timeChicagoBullsDe1995.setId(2l);
+        timeDetroitPistonsDe1993 = new Time(clubeDetroitPistons, data1993, composicaoTime1993);
+        timeDetroitPistonsDe1993.setId(3l);
 
         // composição chicago bulls
-        composicaoTime1994.add(new ComposicaoTime(timeChicagoBullsDe1994, michael_jordan));
-        composicaoTime1994.add(new ComposicaoTime(timeChicagoBullsDe1994, denis_rodman));
-        composicaoTime1994.add(new ComposicaoTime(timeChicagoBullsDe1994, scottie_pippen));
+        composicaoTime1994.add(new ComposicaoTime(1L, timeChicagoBullsDe1994, michael_jordan));
+        composicaoTime1994.add(new ComposicaoTime(2L, timeChicagoBullsDe1994, denis_rodman));
+        composicaoTime1994.add(new ComposicaoTime(3L, timeChicagoBullsDe1994, scottie_pippen));
 
-        composicaoTime1995.add(new ComposicaoTime(timeChicagoBullsDe1995, michael_jordan));
-        composicaoTime1995.add(new ComposicaoTime(timeChicagoBullsDe1995, denis_rodman));
-        composicaoTime1995.add(new ComposicaoTime(timeChicagoBullsDe1995, scottie_pippen));
+        composicaoTime1995.add(new ComposicaoTime(4L, timeChicagoBullsDe1995, michael_jordan));
+        composicaoTime1995.add(new ComposicaoTime(5L, timeChicagoBullsDe1995, denis_rodman));
+        composicaoTime1995.add(new ComposicaoTime(6L, timeChicagoBullsDe1995, scottie_pippen));
 
         // composição detroid pistons
-        composicaoTime1993.add(new ComposicaoTime(timeDetroidPistonsDe1993, denis_rodman));
+        composicaoTime1993.add(new ComposicaoTime(7L, timeDetroitPistonsDe1993, denis_rodman));
 
 
         composicaoTime1994E1995.addAll(composicaoTime1994);
@@ -75,7 +81,7 @@ public class DadosParaTesteApiService {
         todosOsTimes = new ArrayList<>();
         todosOsTimes.add(timeChicagoBullsDe1994);
         todosOsTimes.add(timeChicagoBullsDe1995);
-        todosOsTimes.add(timeDetroidPistonsDe1993);
+        todosOsTimes.add(timeDetroitPistonsDe1993);
     }
 
 
@@ -88,11 +94,15 @@ public class DadosParaTesteApiService {
     }
 
     public Time getTimeDetroidPistonsDe1993() {
-        return timeDetroidPistonsDe1993;
+        return timeDetroitPistonsDe1993;
     }
 
-    public String getFranquiaNBA() {
-        return franquiaNBA;
+    public String getClubeChicagoBulls(){
+        return clubeChicagoBulls;
+    }
+
+    public String getClubeDetroitPistons(){
+        return clubeDetroitPistons;
     }
 
     public Integrante getDenis_rodman() {
