@@ -53,7 +53,7 @@ public class DadosParaTesteApiService {
         denis_rodman = new Integrante("Denis Rodman", "ala-pivô", composicaoTime1995);
         denis_rodman.setId(2L);
         scottie_pippen = new Integrante("Scottie Pippen", "ala", composicaoTime1995);
-        denis_rodman.setId(3L);
+        scottie_pippen.setId(3L);
 
         timeChicagoBullsDe1994 = new Time(clubeChicagoBulls, data1994, composicaoTime1994);
         timeChicagoBullsDe1994.setId(1l);
