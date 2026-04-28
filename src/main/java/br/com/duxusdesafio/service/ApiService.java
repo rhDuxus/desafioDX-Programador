@@ -72,7 +72,8 @@ public class ApiService {
     }
 
     /**
-     * Vai retornar o número (quantidade) de Funções dentro do período
+     * Vai retornar o número (quantidade) de Funções dentro do período.
+     * Dica - pense sobre repetições!
      */
     public Map<String, Long> contagemPorFuncao(LocalDate dataInicial, LocalDate dataFinal, List<Time> todosOsTimes){
         // TODO Implementar método seguindo as instruções!
